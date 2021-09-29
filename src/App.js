@@ -4,13 +4,15 @@ export default function App() {
   const [formData, setformData] = useState({ city: '' });
 
   useEffect(() => {
-    const FetchData = () => {
-      url = `
+    const FetchData = async () => {
+      let url = `
       https://api.openweathermap.org/data/2.5/weather?q=${formData.city}&appid=e9207e1292e995798b33b5dcbf08a221`;
-
       const response = await fetch(url);
+      const movies = await response.json();
+      console.log(movies);
     };
-    // const movies = await response.json();
+    FetchData();
+    //
   }, []);
 
   return (
