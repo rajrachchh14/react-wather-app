@@ -4,23 +4,13 @@ export default function App() {
   const [formData, setformData] = useState({ city: '' });
 
   useEffect(() => {
-    fetch(
-      'https://api.openweathermap.org/data/2.5/weather?q=rajkot&appid=e9207e1292e995798b33b5dcbf08a221'
-    )
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          console.log(result);
-          // setIsLoaded(true);
-          // setformData(result);
-        },
+    const FetchData = () => {
+      url = `
+      https://api.openweathermap.org/data/2.5/weather?q=${formData.city}&appid=e9207e1292e995798b33b5dcbf08a221`;
 
-        (error) => {
-          console.log(error);
-          // setIsLoaded(true);
-          // setError(error);
-        }
-      );
+      const response = await fetch(url);
+    };
+    // const movies = await response.json();
   }, []);
 
   return (
