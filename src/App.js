@@ -31,12 +31,14 @@ export default function App() {
                   ></div>
                 </div>
                 <div class="card-img-overlay text-dark p-5">
-                  <h4 class="mb-0">Juneau, Alaska, US</h4>
+                  <h4 class="mb-0">{formData.city}</h4>
                   <p class="display-2 my-3">1.28°C</p>
                   <p class="mb-2">
-                    Feels Like: <strong>-1.08 °C</strong>
+                    Feels Like: <strong> Min -1.08 °C</strong>
+                    &nbsp; &nbsp;
+                    <strong> Max -1.08 °C</strong>
                   </p>
-                  <h5>Snowy</h5>
+                  {/* <h5>Snowy</h5> */}
                 </div>
               </div>
             </div>
