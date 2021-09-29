@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function App() {
+  const [formData, setformData] = useState({ city: '' });
+
   return (
     <div>
       <section class="vh-100" style={{ BackgroundColor: '#f5f6f7' }}>
@@ -9,9 +11,10 @@ export default function App() {
             <div class="col-md-10 col-lg-8 col-xl-6">
               <input
                 type="text"
-                value=""
+                value={formData.city}
                 className="form-control"
                 placeholder="Search City"
+                onChange={(e) => setformData(e.target.value)}
               />
 
               <br />
