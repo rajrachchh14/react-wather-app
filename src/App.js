@@ -7,6 +7,14 @@ export default function App() {
         <div class="container py-5 h-100">
           <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-md-10 col-lg-8 col-xl-6">
+              <input
+                type="text"
+                value=""
+                className="form-control"
+                placeholder="Search City"
+              />
+
+              <br />
               <div class="card bg-dark text-white" style={{ BorderRadius: 40 }}>
                 <div class="bg-image" style={{ BorderRadius: 35 }}>
                   <img
