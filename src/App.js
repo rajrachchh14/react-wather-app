@@ -1,14 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function App() {
   const [formData, setformData] = useState({ city: '' });
 
+  useEffect(() => {
+    fetch(
+      'https://api.openweathermap.org/data/2.5/weather?q=rajkot&appid=e9207e1292e995798b33b5dcbf08a221'
+    )
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          console.log(result);
+          // setIsLoaded(true);
+          // setformData(result);
+        },
+
+        (error) => {
+          console.log(error);
+          // setIsLoaded(true);
+          // setError(error);
+        }
+      );
+  }, []);
+
   return (
     <div>
-      <section class="vh-100" style={{ BackgroundColor: '#f5f6f7' }}>
-        <div class="container py-5 h-100">
-          <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-md-10 col-lg-8 col-xl-6">
+      <section className="vh-100" style={{ BackgroundColor: '#f5f6f7' }}>
+        <div className="container py-5 h-100">
+          <div className="row d-flex justify-content-center align-items-center h-100">
+            <div className="col-md-10 col-lg-8 col-xl-6">
               <input
                 type="text"
                 value={formData.city}
@@ -18,22 +38,25 @@ export default function App() {
               />
 
               <br />
-              <div class="card bg-dark text-white" style={{ BorderRadius: 40 }}>
-                <div class="bg-image" style={{ BorderRadius: 35 }}>
+              <div
+                className="card bg-dark text-white"
+                style={{ BorderRadius: 40 }}
+              >
+                <div className="bg-image" style={{ BorderRadius: 35 }}>
                   <img
                     src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-weather/draw1.png"
-                    class="card-img"
+                    className="card-img"
                     alt="weather"
                   />
                   <div
-                    class="mask"
+                    className="mask"
                     style={{ BackgroundColor: 'rgba(190, 216, 232,5)' }}
                   ></div>
                 </div>
-                <div class="card-img-overlay text-dark p-5">
-                  <h4 class="mb-0">{formData.city}</h4>
-                  <p class="display-2 my-3">1.28°C</p>
-                  <p class="mb-2">
+                <div className="card-img-overlay text-dark p-5">
+                  <h4 className="mb-0">{formData.city}</h4>
+                  <p className="display-2 my-3">1.28°C</p>
+                  <p className="mb-2">
                     Feels Like: <strong> Min -1.08 °C</strong>
                     &nbsp; &nbsp;
                     <strong> Max -1.08 °C</strong>
