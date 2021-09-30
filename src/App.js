@@ -52,45 +52,7 @@ export default function App() {
               <br />
 
               {/* {responseError == 404 ? 'err' : 'true'} */}
-              {responseError == 404 ? (
-                'err'
-              ) : (
-                <div
-                  className="card bg-dark text-white"
-                  style={{ BorderRadius: 40 }}
-                >
-                  <div className="bg-image" style={{ BorderRadius: 35 }}>
-                    <img
-                      src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-weather/draw1.png"
-                      className="card-img"
-                      alt="weather"
-                    />
-                    <div
-                      className="mask"
-                      style={{ BackgroundColor: 'rgba(190, 216, 232,5)' }}
-                    ></div>
-                  </div>
-
-                  <div className="card-img-overlay text-dark p-5">
-                    <h4 className="mb-0">{responseCity ? responseCity : ''}</h4>
-                    <p className="display-2 my-3"></p>
-                    <p className="mb-2">
-                      Feels Like:
-                      <strong>
-                        Min
-                        {/* {responseTemp.temp_min} */}
-                        {responseError == 404 ? 'err' : responseTemp.temp_min}
-                      </strong>
-                      &nbsp; &nbsp;
-                      <strong>
-                        Max
-                        {/* {responseTemp.temp_max} */}
-                        {responseError == 404 ? 'err' : responseTemp.temp_max}
-                      </strong>
-                    </p>
-                  </div>
-                </div>
-              )}
+              {responseError == 404 ? 'err' : 'show'}
             </div>
           </div>
         </div>
