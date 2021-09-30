@@ -7,14 +7,26 @@ export default function App() {
   let [responseError, SetresponseError] = useState('');
 
   const FetchData = async () => {
+    /*
     let url = `
     https://api.openweathermap.org/data/2.5/weather?q=${formData}&appid=e9207e1292e995798b33b5dcbf08a221`;
     const response = await fetch(url);
     const output = await response.json();
-    // console.log(output.cod);
+    console.log(output.cod);
     SetResponseCity(output.name); // name
     SetResponseTemp(output.main); // Data get
-    SetresponseError(output.cod); // response err
+    */
+
+    let url = `
+      https://api.openweathermap.org/data/2.5/weather?q=${formData}&appid=e9207e1292e995798b33b5dcbf08a221`;
+    const response = await fetch(url);
+    const output = await response.json();
+    SetResponseCity(output.name); // name
+    SetResponseTemp(output.main); // Data get
+
+    // console.log(error);
+
+    SetResponseTemp(output.main); // Data get
   };
 
   const Input = (e) => {
@@ -22,13 +34,14 @@ export default function App() {
   };
 
   const Submit = () => {
-    console.log('click');
+    // console.log('click');
     FetchData();
   };
 
   return (
     <div>
-      {console.log(typeof responseError)}
+      {/* {console.log(responseError.length)} */}
+      {/* {console.log(typeof responseError)} */}
       <section className="vh-100" style={{ BackgroundColor: '#f5f6f7' }}>
         <div className="container py-5 h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
@@ -52,7 +65,7 @@ export default function App() {
               <br />
 
               {/* {responseError == 404 ? 'err' : 'true'} */}
-              {responseError == 404 ? 'err' : 'show'}
+              {responseError.toString() === 404 ? 'err' : responseTemp.temp_min}
             </div>
           </div>
         </div>
