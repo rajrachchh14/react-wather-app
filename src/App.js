@@ -1,42 +1,55 @@
 import React, { useState, useEffect } from 'react';
 
 export default function App() {
-  const [formData, setformData] = useState({ city: '' });
-  console.log(formData.city);
+  const [formData, setformData] = useState('');
+  console.log(formData);
 
-  useEffect(() => {
-    const FetchData = async () => {
-      let url = `
-      https://api.openweathermap.org/data/2.5/weather?q=${formData.city}&appid=e9207e1292e995798b33b5dcbf08a221`;
-      const response = await fetch(url);
-      const output = await response.json();
-      console.log(output);
-      // console.log(response);
-      // setformData(output);
-    };
-    FetchData();
-    //
-  }, []);
+  // useEffect(() => {
+  //   const FetchData = async () => {
+  //     let url = `
+  //     https://api.openweathermap.org/data/2.5/weather?q=${formData.city}&appid=e9207e1292e995798b33b5dcbf08a221`;
+  //     const response = await fetch(url);
+  //     const output = await response.json();
+  //     console.log(output);
+  //     // console.log(response);
+  //     // setformData(output);
+  //   };
+  //   FetchData();
+  //   //
+  // }, []);
 
-  const Search = (e) => {
-    console.log(e.target.value);
+  const Input = (e) => {
+    setformData(e.target.value);
+  };
+
+  const Search = () => {
+    console.log('click');
   };
 
   return (
     <div>
-      {/* {output} */}
+      {formData}
       <section className="vh-100" style={{ BackgroundColor: '#f5f6f7' }}>
         <div className="container py-5 h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col-md-10 col-lg-8 col-xl-6">
               <input
                 type="text"
-                value={formData.city}
+                value={formData}
                 className="form-control"
                 placeholder="Search City"
-                onChange={(e) => Search()}
+                onChange={Input}
               />
+              <br />
+              <button
+                type="submit"
+                className="btn btn-success"
+                OnClick={Search}
+              >
+                Search
+              </button>
 
+              <br />
               <br />
               <div
                 className="card bg-dark text-white"
