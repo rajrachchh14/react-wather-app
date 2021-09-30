@@ -22,7 +22,7 @@ export default function App() {
     setformData(e.target.value);
   };
 
-  const Search = () => {
+  const Submit = () => {
     console.log('click');
   };
 
@@ -44,7 +44,7 @@ export default function App() {
               <button
                 type="submit"
                 className="btn btn-success"
-                OnClick={Search}
+                onClick={Submit}
               >
                 Search
               </button>
