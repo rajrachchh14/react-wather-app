@@ -1,22 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 export default function App() {
-  const [formData, setformData] = useState('');
-  console.log(formData);
+  let [formData, setformData] = useState();
+  let [responseData, SetResponseData] = useState();
 
-  // useEffect(() => {
-  //   const FetchData = async () => {
-  //     let url = `
-  //     https://api.openweathermap.org/data/2.5/weather?q=${formData.city}&appid=e9207e1292e995798b33b5dcbf08a221`;
-  //     const response = await fetch(url);
-  //     const output = await response.json();
-  //     console.log(output);
-  //     // console.log(response);
-  //     // setformData(output);
-  //   };
-  //   FetchData();
-  //   //
-  // }, []);
+  const FetchData = async () => {
+    let url = `
+    https://api.openweathermap.org/data/2.5/weather?q=${formData}&appid=e9207e1292e995798b33b5dcbf08a221`;
+    const response = await fetch(url);
+    const output = await response.json();
+    // console.log(output.name);
+    SetResponseData(output.name);
+
+    // console.log(response);
+    // setformData(output);
+  };
 
   const Input = (e) => {
     setformData(e.target.value);
@@ -24,11 +22,12 @@ export default function App() {
 
   const Submit = () => {
     console.log('click');
+    FetchData();
   };
 
   return (
     <div>
-      {formData}
+      {responseData}
       <section className="vh-100" style={{ BackgroundColor: '#f5f6f7' }}>
         <div className="container py-5 h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
