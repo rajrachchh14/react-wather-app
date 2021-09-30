@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 export default function App() {
-  let [formData, setformData] = useState();
+  let [formData, setformData] = useState('');
   let [responseCity, SetResponseCity] = useState('');
   let [responseTemp, SetResponseTemp] = useState('');
 
@@ -63,16 +63,20 @@ export default function App() {
                     style={{ BackgroundColor: 'rgba(190, 216, 232,5)' }}
                   ></div>
                 </div>
-                <div className="card-img-overlay text-dark p-5">
-                  <h4 className="mb-0">{responseCity ? responseCity : ''}</h4>
-                  <p className="display-2 my-3"></p>
-                  <p className="mb-2">
-                    Feels Like: <strong> Min {responseTemp.temp_min}</strong>
-                    &nbsp; &nbsp;
-                    <strong> Max {responseTemp.temp_max}</strong>
-                  </p>
-                  {/* <h5>Snowy</h5> */}
-                </div>
+
+                {!responseTemp.temp_min ? (
+                  'no response'
+                ) : (
+                  <div className="card-img-overlay text-dark p-5">
+                    <h4 className="mb-0">{responseCity ? responseCity : ''}</h4>
+                    <p className="display-2 my-3"></p>
+                    <p className="mb-2">
+                      Feels Like: <strong> Min {responseTemp.temp_min}</strong>
+                      &nbsp; &nbsp;
+                      <strong> Max {responseTemp.temp_max}</strong>
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
           </div>
