@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 export default function App() {
-  const [formData, setformData] = useState({ city: '' });
+  const [formData, setformData] = useState({ city: 'rajkot' });
 
   useEffect(() => {
     const FetchData = async () => {
