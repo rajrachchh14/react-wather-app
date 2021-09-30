@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function App() {
   let [search, setSearch] = useState('rajkot');
-  let [city, setCity] = useState(null);
+  let [temp, setTemp] = useState(null);
 
   useEffect(() => {
     const FetchData = async () => {
@@ -10,7 +10,7 @@ export default function App() {
     https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=e9207e1292e995798b33b5dcbf08a221`;
       const response = await fetch(url);
       const output = await response.json();
-      setCity(output.main); // temp
+      setTemp(output.main); // temp
     };
     FetchData();
   }, [search]);
@@ -38,7 +38,7 @@ export default function App() {
               <br />
               <br />
 
-              {!city ? (
+              {!temp ? (
                 <div className="card" style={{ width: 300 }}>
                   <div className="card-body text-center">
                     <h5 className="card-title">City Not Found</h5>
@@ -51,10 +51,10 @@ export default function App() {
                   <div className="card-body text-center">
                     <h5 className="card-title">{search}</h5>
                     <p className="card-text">
-                      Min Temprature : {city.temp_min}
+                      Min Temprature : {temp.temp_min}
                     </p>
                     <p className="card-text">
-                      Max Temprature : {city.temp_max}
+                      Max Temprature : {temp.temp_max}
                     </p>
                   </div>
                 </div>
