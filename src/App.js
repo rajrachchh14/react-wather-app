@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
 export default function App() {
-  const [formData, setformData] = useState({ city: 'rajkot' });
+  const [formData, setformData] = useState({ city: '' });
 
   useEffect(() => {
     const FetchData = async () => {
       let url = `
       https://api.openweathermap.org/data/2.5/weather?q=${formData.city}&appid=e9207e1292e995798b33b5dcbf08a221`;
       const response = await fetch(url);
-      const movies = await response.json();
-      console.log(movies);
+      const output = await response.json();
+      console.log(output);
+      setformData(output);
     };
     FetchData();
     //
@@ -17,6 +18,7 @@ export default function App() {
 
   return (
     <div>
+      {/* {output} */}
       <section className="vh-100" style={{ BackgroundColor: '#f5f6f7' }}>
         <div className="container py-5 h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
@@ -46,7 +48,7 @@ export default function App() {
                   ></div>
                 </div>
                 <div className="card-img-overlay text-dark p-5">
-                  <h4 className="mb-0">{formData.city}</h4>
+                  <h4 className="mb-0"></h4>
                   <p className="display-2 my-3">1.28°C</p>
                   <p className="mb-2">
                     Feels Like: <strong> Min -1.08 °C</strong>
