@@ -2,18 +2,17 @@ import React, { useState } from 'react';
 
 export default function App() {
   let [formData, setformData] = useState();
-  let [responseCity, SetResponseCity] = useState();
+  let [responseCity, SetResponseCity] = useState('');
+  let [responseTemp, SetResponseTemp] = useState('');
 
   const FetchData = async () => {
     let url = `
     https://api.openweathermap.org/data/2.5/weather?q=${formData}&appid=e9207e1292e995798b33b5dcbf08a221`;
     const response = await fetch(url);
     const output = await response.json();
-    // console.log(output.name);
+    console.log(output);
     SetResponseCity(output.name);
-
-    // console.log(response);
-    // setformData(output);
+    SetResponseTemp(output.main); // Data get
   };
 
   const Input = (e) => {
@@ -68,9 +67,9 @@ export default function App() {
                   <h4 className="mb-0">{responseCity ? responseCity : ''}</h4>
                   <p className="display-2 my-3">1.28°C</p>
                   <p className="mb-2">
-                    Feels Like: <strong> Min -1.08 °C</strong>
+                    Feels Like: <strong> Min {responseTemp.temp_min}</strong>
                     &nbsp; &nbsp;
-                    <strong> Max -1.08 °C</strong>
+                    <strong> Max {responseTemp.temp_max}</strong>
                   </p>
                   {/* <h5>Snowy</h5> */}
                 </div>
