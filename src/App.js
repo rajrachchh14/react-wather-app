@@ -65,7 +65,7 @@ export default function App() {
                 </div>
                 <div className="card-img-overlay text-dark p-5">
                   <h4 className="mb-0">{responseCity ? responseCity : ''}</h4>
-                  <p className="display-2 my-3">1.28°C</p>
+                  <p className="display-2 my-3"></p>
                   <p className="mb-2">
                     Feels Like: <strong> Min {responseTemp.temp_min}</strong>
                     &nbsp; &nbsp;
