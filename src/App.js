@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function App() {
   const [formData, setformData] = useState({ city: '' });
+  console.log(formData.city);
 
   useEffect(() => {
     const FetchData = async () => {
@@ -10,11 +11,16 @@ export default function App() {
       const response = await fetch(url);
       const output = await response.json();
       console.log(output);
-      setformData(output);
+      // console.log(response);
+      // setformData(output);
     };
     FetchData();
     //
   }, []);
+
+  const Search = (e) => {
+    console.log(e.target.value);
+  };
 
   return (
     <div>
@@ -28,7 +34,7 @@ export default function App() {
                 value={formData.city}
                 className="form-control"
                 placeholder="Search City"
-                onChange={(e) => setformData(e.target.value)}
+                onChange={(e) => Search()}
               />
 
               <br />
